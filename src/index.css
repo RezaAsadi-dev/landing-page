@@ -1,0 +1,13 @@
+/* @import "tw-animate-css"; */
+@import "tailwindcss";
+
+
+
+@font-face {
+  font-family: "iran";
+  src: url("../public/IRANSans.ttf");
+}
+* {
+  font-family: "iran" !important;
+  cursor: none !important;
+}
