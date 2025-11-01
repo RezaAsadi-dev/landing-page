@@ -2,11 +2,11 @@ import { Download, FileText, ImageIcon, Cpu, Zap } from "lucide-react";
 
 export default function CatalogSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 relative">
+    <section className="min-h-screen flex items-center justify-center p-4 mt-20 sm:p-6 md:p-8 relative">
       <div className="max-w-6xl w-full space-y-6 sm:space-y-8 px-2 sm:px-4">
-        <div className="text-center space-y-1 sm:space-y-2 transition-transform duration-300">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white" dir="rtl">دریافت کاتالوگ</h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400">GET CATALOG</p>
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[30px] sm:mb-[40px] md:mb-[50px]">
+          <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" dir="rtl">دریافت کاتالوگ</p>
+          <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">GET CATALOG</p>
         </div>
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-12 shadow-2xl border border-slate-700 transition-transform duration-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
