@@ -5,7 +5,6 @@ interface CursorState {
   y: number;
   isHovering: boolean;
   isClicking: boolean;
-  target: string;
 }
 
 const CustomCursor = () => {
@@ -13,44 +12,47 @@ const CustomCursor = () => {
     x: 0,
     y: 0,
     isHovering: false,
-    isClicking: false,
-    target: ''
+    isClicking: false
   });
   const [followerPosition, setFollowerPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  const cursorPosRef = useRef({ x: 0, y: 0 });
+  const followerPosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     let animationFrame: number;
     let followerAnimationFrame: number;
+    let rafActive = true;
 
     const updateMousePosition = (e: MouseEvent) => {
+      cursorPosRef.current = { x: e.clientX, y: e.clientY };
+      
       cancelAnimationFrame(animationFrame);
       animationFrame = requestAnimationFrame(() => {
+        if (!rafActive) return;
         setCursor(prev => ({
           ...prev,
-          x: e.clientX,
-          y: e.clientY
+          x: cursorPosRef.current.x,
+          y: cursorPosRef.current.y
         }));
         setIsVisible(true);
       });
     };
 
     const updateFollowerPosition = () => {
-      setCursor(prev => {
-        setFollowerPosition(prevFollower => {
-          const diffX = prev.x - prevFollower.x;
-          const diffY = prev.y - prevFollower.y;
-          
-          return {
-            x: prevFollower.x + diffX * 0.1,
-            y: prevFollower.y + diffY * 0.1
-          };
-        });
-        return prev;
-      });
+      if (!rafActive) return;
       
+      const diffX = cursorPosRef.current.x - followerPosRef.current.x;
+      const diffY = cursorPosRef.current.y - followerPosRef.current.y;
+      
+      followerPosRef.current = {
+        x: followerPosRef.current.x + diffX * 0.1,
+        y: followerPosRef.current.y + diffY * 0.1
+      };
+      
+      setFollowerPosition(followerPosRef.current);
       followerAnimationFrame = requestAnimationFrame(updateFollowerPosition);
     };
 
@@ -63,8 +65,7 @@ const CustomCursor = () => {
       
       setCursor(prev => ({
         ...prev,
-        isHovering: isInteractive,
-        target: isInteractive ? target.tagName.toLowerCase() : ''
+        isHovering: isInteractive
       }));
     };
 
@@ -72,8 +73,7 @@ const CustomCursor = () => {
       setIsVisible(false);
       setCursor(prev => ({
         ...prev,
-        isHovering: false,
-        target: ''
+        isHovering: false
       }));
     };
 
@@ -86,7 +86,7 @@ const CustomCursor = () => {
     };
 
     // Add event listeners
-    document.addEventListener('mousemove', updateMousePosition);
+    document.addEventListener('mousemove', updateMousePosition, { passive: true });
     document.addEventListener('mouseenter', handleMouseEnter, true);
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mousedown', handleMouseDown);
@@ -94,6 +94,7 @@ const CustomCursor = () => {
 
     // Cleanup
     return () => {
+      rafActive = false;
       document.removeEventListener('mousemove', updateMousePosition);
       document.removeEventListener('mouseenter', handleMouseEnter, true);
       document.removeEventListener('mouseleave', handleMouseLeave);
@@ -119,7 +120,7 @@ const CustomCursor = () => {
         }}
       >
         <div 
-          className={`transition-all duration-300 ease-out ${
+          className={`transition-all duration-200 ease-out ${
             cursor.isHovering 
               ? 'w-8 h-8 bg-transparent border-2 border-blue-500' 
               : 'w-3 h-3 bg-blue-500'
@@ -144,7 +145,7 @@ const CustomCursor = () => {
         }}
       >
         <div 
-          className={`transition-all duration-500 ease-out ${
+          className={`transition-all duration-300 ease-out ${
             cursor.isHovering 
               ? 'w-20 h-20 bg-blue-100' 
               : 'w-12 h-12 bg-blue-200'

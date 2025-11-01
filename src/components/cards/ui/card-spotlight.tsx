@@ -1,11 +1,12 @@
 "use client";
 
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
-import React, { MouseEvent as ReactMouseEvent, useState } from "react";
+import React, { useState, useCallback, memo } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { CanvasRevealEffect } from "./canvas-reveal-effect";
 import { cn } from "../../../ui/utils/cn";
 
-export const CardSpotlight = ({
+export const CardSpotlight = memo(({
   children,
   radius = 350,
   color = "#4a5565",
@@ -18,24 +19,24 @@ export const CardSpotlight = ({
 } & React.HTMLAttributes<HTMLDivElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  function handleMouseMove({
+  
+  const handleMouseMove = useCallback(({
     currentTarget,
     clientX,
     clientY,
-  }: ReactMouseEvent<HTMLDivElement>) {
-    let { left, top } = currentTarget.getBoundingClientRect();
-
+  }: ReactMouseEvent<HTMLDivElement>) => {
+    const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
-  }
+  }, [mouseX, mouseY]);
 
   const [isHovering, setIsHovering] = useState(false);
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovering(false), []);
   return (
     <div
       className={cn(
-        "group/spotlight p-10 rounded-[50px] relative border border-neutral-800 bg-gray-600 dark:border-neutral-800",
+        "group/spotlight p-10 rounded-[15px] relative border border-neutral-800 bg-gray-600 dark:border-neutral-800",
         className
       )}
       onMouseMove={handleMouseMove}
@@ -71,4 +72,6 @@ export const CardSpotlight = ({
       {children}
     </div>
   );
-};
+});
+
+CardSpotlight.displayName = "CardSpotlight";

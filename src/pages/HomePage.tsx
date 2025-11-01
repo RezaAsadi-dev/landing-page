@@ -1,19 +1,28 @@
 "use client";
 
 import HeroSpline from "../components/sections/HeroSpline";
-import { useState } from "react";
+import { useState, lazy, Suspense, memo } from "react";
 import Loader from "../components/Loader";
 import BackgroundBlobs from "../components/sections/BackgroundBlobs";
-import CoverSection from "../components/sections/CoverSection";
 import ExecutiveSummarySection from "../components/sections/ExecutiveSummarySection";
-import CompetitiveAdvantagesSection from "../components/sections/CompetitiveAdvantagesSection";
-import ProjectStructureSection from "../components/sections/ProjectStructureSection";
-import ApiAndFrontendSection from "../components/sections/ApiAndFrontendSection";
-import AccuracySection from "../components/sections/AccuracySection";
-import LanguageSupportSection from "../components/sections/LanguageSupportSection";
-import CatalogSection from "../components/sections/CatalogSection";
-import DemoCtaSection from "../components/sections/DemoCtaSection";
-import ThankYouSection from "../components/sections/ThankYouSection";
+
+// Lazy load heavy sections
+const CompetitiveAdvantagesSection = lazy(() => import("../components/sections/CompetitiveAdvantagesSection"));
+const ProjectStructureSection = lazy(() => import("../components/sections/ProjectStructureSection"));
+const ApiAndFrontendSection = lazy(() => import("../components/sections/ApiAndFrontendSection"));
+const AccuracySection = lazy(() => import("../components/sections/AccuracySection"));
+const LanguageSupportSection = lazy(() => import("../components/sections/LanguageSupportSection"));
+const CatalogSection = lazy(() => import("../components/sections/CatalogSection"));
+const DemoCtaSection = lazy(() => import("../components/sections/DemoCtaSection"));
+const ThankYouSection = lazy(() => import("../components/sections/ThankYouSection"));
+
+const LazySectionLoader = ({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={null}>
+    {children}
+  </Suspense>
+);
+
+const MemoizedBackgroundBlobs = memo(BackgroundBlobs);
 
 export default function FarsiFlowPresentation() {
   const [heroReady, setHeroReady] = useState(false);
@@ -28,18 +37,33 @@ export default function FarsiFlowPresentation() {
           <Loader />
         ) : (
           <>
-            <BackgroundBlobs />
+            <MemoizedBackgroundBlobs />
             <div className="relative z-10">
-              {/* <CoverSection /> */}
               <ExecutiveSummarySection />
-              <CompetitiveAdvantagesSection />
-              <ProjectStructureSection />
-              <ApiAndFrontendSection />
-              <AccuracySection />
-              <LanguageSupportSection />
-              <CatalogSection />
-              <DemoCtaSection />
-              <ThankYouSection />
+              <LazySectionLoader>
+                <CompetitiveAdvantagesSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <ProjectStructureSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <ApiAndFrontendSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <AccuracySection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <LanguageSupportSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <CatalogSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <DemoCtaSection />
+              </LazySectionLoader>
+              <LazySectionLoader>
+                <ThankYouSection />
+              </LazySectionLoader>
             </div>
           </>
         )}

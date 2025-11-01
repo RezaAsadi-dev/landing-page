@@ -1,18 +1,58 @@
-import Spline from "@splinetool/react-spline";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import CardSpotlightDemo from "../cards/CardSpotlight";
 
-export default function ExecutiveSummarySection() {
-  return (
-    <section className="mt-[200px] flex items-center justify-center relative">
-      <div className="w-200 h-200">
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
+function LazySpline() {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  if (!isVisible) {
+    return (
+      <div ref={containerRef} className="w-200 h-200">
+        <div className="w-full h-full bg-gray-100 animate-pulse rounded-lg" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-200 h-200">
+      <Suspense >
         <Spline
           scene="https://prod.spline.design/AW850aeqmrW29zxP/scene.splinecode"
         />
-      </div>
+      </Suspense>
+    </div>
+  );
+}
 
-      <div className="w-200 h-200  space-y-8">
-        <div className="text-center space-y-2 transition-transform duration-300">
+export default function ExecutiveSummarySection() {
+  return (
+    <section className="mt-[120px] flex items-center justify-center relative">
+      <LazySpline />
+
+      <div className="w-200 h-200 py-[70px]">
+        <div className="text-center space-y-4 transition-transform duration-300 mb-[50px]">
           <p className="text-[35px] text-black" >چکیده اجرایی</p>
           <p className="-mt-2 text-[#d8d8d8] tracking-[8px]">EXECUTIVE SUMMARY</p>
         </div>
