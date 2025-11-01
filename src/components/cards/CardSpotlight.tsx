@@ -11,19 +11,19 @@ type CardSpotlightDemoProps = {
 export default function CardSpotlightDemo({ title, text1, list = [], text2 }: CardSpotlightDemoProps) {
     return (
         <CardSpotlight  >
-            <div dir="rtl" className="relative z-20">
-                <p className="text-xl font-bold mt-2 text-white text-right">
+            <div dir="rtl" className="relative z-20 p-4 ">
+                <p className="text-lg sm:text-xl font-bold mt-2 text-white text-right">
                     {title}
                 </p>
-                <div className="text-neutral-200 mt-4 text-right">
+                <div className="text-sm sm:text-base text-neutral-200 mt-3 sm:mt-4 text-right leading-relaxed">
                     {text1}
-                    <ul className="list-none mt-2 text-right">
+                    <ul className="list-none mt-2 sm:mt-3 text-right space-y-1 sm:space-y-2">
                         {list.map((item, index) => (
                             <Step key={index} title={item} />
                         ))}
                     </ul>
                 </div>
-                <p className="text-neutral-300 mt-4 text-sm text-right">
+                <p className="text-neutral-300 mt-3 sm:mt-4 text-xs sm:text-sm text-right leading-relaxed">
                     {text2}
                 </p>
             </div>

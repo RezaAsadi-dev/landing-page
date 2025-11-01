@@ -9,7 +9,6 @@ import ExecutiveSummarySection from "../components/sections/ExecutiveSummarySect
 // Lazy load heavy sections
 const CompetitiveAdvantagesSection = lazy(() => import("../components/sections/CompetitiveAdvantagesSection"));
 const ProjectStructureSection = lazy(() => import("../components/sections/ProjectStructureSection"));
-const ApiAndFrontendSection = lazy(() => import("../components/sections/ApiAndFrontendSection"));
 const AccuracySection = lazy(() => import("../components/sections/AccuracySection"));
 const LanguageSupportSection = lazy(() => import("../components/sections/LanguageSupportSection"));
 const CatalogSection = lazy(() => import("../components/sections/CatalogSection"));
@@ -45,9 +44,6 @@ export default function FarsiFlowPresentation() {
               </LazySectionLoader>
               <LazySectionLoader>
                 <ProjectStructureSection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <ApiAndFrontendSection />
               </LazySectionLoader>
               <LazySectionLoader>
                 <AccuracySection />

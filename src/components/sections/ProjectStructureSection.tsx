@@ -1,42 +1,60 @@
 import { Cpu, Zap, Check } from "lucide-react";
+import CardSpotlightDemo from "../cards/CardSpotlight";
 
 export default function ProjectStructureSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center p-8 relative">
-      <div className="max-w-5xl w-full space-y-8">
-        <div className="text-center space-y-2 transition-transform duration-300">
-          <h2 className="text-4xl md:text-5xl font-bold text-white" dir="rtl">ساختار ماژولار پروژه</h2>
-          <p className="text-xl text-slate-400">MODULAR PROJECT STRUCTURE</p>
+    <section className="min-h-screen flex items-center justify-center mt-8 p-4 sm:p-6 md:p-8 relative">
+      <div className="max-w-5xl w-full space-y-6 sm:space-y-8 px-2 sm:px-4">
+
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[30px] sm:mb-[40px] md:mb-[50px]">
+          <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" >ساختار ماژولار پروژه </p>
+          <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">MODULAR PROJECT STRUCTURE </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-slate-700 space-y-4 transition-transform duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                <Cpu className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">Engine</h3>
-            </div>
-            <ul className="space-y-3 text-right" dir="rtl">
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" /><span className="text-slate-200">زبان پیاده سازی C</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" /><span className="text-slate-200">مسئول پردازش همزمان (Multithread) و سریع صوت</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" /><span className="text-slate-200">طراحی برای مقیاس پذیری و عملکرد بلادرنگ (Real-time)</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" /><span className="text-slate-200">انجام حذف نویز نرمال سازی صوت و آماده سازی داده برای تبدیل</span></li>
-            </ul>
-          </div>
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-slate-700 space-y-4 transition-transform duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
-                <Zap className="w-6 h-6 text-cyan-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">Converter</h3>
-            </div>
-            <ul className="space-y-3 text-right" dir="rtl">
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" /><span className="text-slate-200">مبتنی بر کتابخانه VOSK</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" /><span className="text-slate-200">تبدیل دقیق گفتار به متن</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" /><span className="text-slate-200">پشتیبانی از چند زبان در صورت نیاز</span></li>
-              <li className="flex items-start gap-2"><Check className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" /><span className="text-slate-200">پشتیبانی از واژگان قابل کاستوم (Custom Vocabulary)</span></li>
-            </ul>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+          <CardSpotlightDemo
+            title="Engine"
+            text1=""
+            list={[
+              "زبان پیاده سازی C",
+              "مسئول پردازش همزمان (Multithread) و سریع صوت",
+              " طراحی برای مقیاس پذیری و عملکرد بلادرنگ (Real-time) ",
+              "انجام حذف نویز نرمال سازی صوت و آماده سازی داده برای تبدیل",
+            ]}
+            text2=""
+          />
+          <CardSpotlightDemo
+            title="Converter"
+            text1=""
+            list={[
+              "مبتنی بر کتابخانه VOSK",
+              "تبدیل دقیق گفتار به متن",
+              " پشتیبانی از چند زبان در صورت نیاز ",
+              "پشتیبانی از واژگان قابل کاستوم (Custom Vocabulary)",
+            ]}
+            text2=""
+          />
+    <CardSpotlightDemo
+            title="API Layer"
+            text1=""
+            list={[
+              " RESTful API با قابلیت اتصال داخلی و خارجی (Internal & External)  ",
+              "مدیریت احراز هویت و مجوزدهی (Token-based Auth)",
+              " ارتباط با ماژولهای CRM Call Center VOD و سیستم های سازمانی",
+              "پشتیبانی از واژگان قابل کاستوم (Custom Vocabulary)",
+            ]}
+            text2=""
+          />
+          <CardSpotlightDemo
+            title="Frontend"
+            text1=""
+            list={[
+              "طراحی با React/Vue قابل تغییر  ",
+              "نمایش فایلهای متنی خروجی وضعیت فایل گزارش تحلیل",
+              "رابط ساده برای بارگذاری فایل صوتی و دریافت خروجی",
+              "قابلیت اجرای Local یا Web-based",
+            ]}
+            text2=""
+          />
         </div>
       </div>
     </section>
