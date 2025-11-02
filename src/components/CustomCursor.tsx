@@ -123,7 +123,7 @@ const CustomCursor = () => {
           className={`transition-all duration-200 ease-out ${
             cursor.isHovering 
               ? 'w-8 h-8 bg-transparent border-2 border-blue-500' 
-              : 'w-3 h-3 bg-blue-500'
+              : 'w-4 h-4 bg-blue-500'
           } ${
             cursor.isClicking 
               ? 'scale-75' 

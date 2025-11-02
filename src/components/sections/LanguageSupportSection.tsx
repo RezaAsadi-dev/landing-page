@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 
 const languages = [
+  "فارسی (Persian)",
   "عربی (Arabic)",
   "مجاری (Hungarian)",
   "فنلاندی (Finnish)",
@@ -8,7 +9,6 @@ const languages = [
   "ژاپنی (Japanese)",
   "کره ای (Korean)",
   "لهستانی (Polish)",
-  "کاتالان (Catalan)",
   "رومانیایی (Romanian)",
   "اسلواکی (Slovak)",
   "یونانی (Greek)",
@@ -25,8 +25,7 @@ const languages = [
   "ویتنامی (Vietnamese)",
   "ایتالیایی (Italian)",
   "هلندی (Dutch)",
-  "فارسی (Persian)",
-  "سوئدی (Swedish)",
+
 ];
 
 export default function LanguageSupportSection() {

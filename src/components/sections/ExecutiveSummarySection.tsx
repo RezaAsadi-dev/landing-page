@@ -1,50 +1,6 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import CardSpotlightDemo from "../cards/CardSpotlight";
 
-const Spline = lazy(() => import("@splinetool/react-spline"));
 
-function LazySpline() {
-  const [isVisible, setIsVisible] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: "200px" }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  if (!isVisible) {
-    return (
-      <div ref={containerRef} className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
-        <div className="w-full h-full bg-gray-100 animate-pulse rounded-lg" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-[50%] ">
-      <Suspense >
-        <Spline
-          scene="https://prod.spline.design/AW850aeqmrW29zxP/scene.splinecode"
-        />
-      </Suspense>
-    </div>
-  );
-}
 
 export default function ExecutiveSummarySection() {
   return (

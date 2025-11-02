@@ -26,7 +26,7 @@ const MemoizedBackgroundBlobs = memo(BackgroundBlobs);
 export default function FarsiFlowPresentation() {
   const [heroReady, setHeroReady] = useState(false);
   return (
-    <div className=" ">
+    <div>
       <HeroSpline onLoaded={() => setHeroReady(true)} />
       <div
         className="bg-white scroll-smooth"
@@ -57,9 +57,7 @@ export default function FarsiFlowPresentation() {
               <LazySectionLoader>
                 <DemoCtaSection />
               </LazySectionLoader>
-              <LazySectionLoader>
-                <ThankYouSection />
-              </LazySectionLoader>
+
             </div>
           </>
         )}
