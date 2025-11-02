@@ -62,7 +62,6 @@ export default function AccuracySection() {
                       tick={{ fill: "#fff", fontSize: 12 }}
                       axisLine={{ stroke: "#64748b" }}
                       width={80}
-                      dir="rtl"
                     />
                     <Tooltip
                       contentStyle={{

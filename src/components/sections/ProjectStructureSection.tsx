@@ -1,4 +1,3 @@
-import { Cpu, Zap, Check } from "lucide-react";
 import CardSpotlightDemo from "../cards/CardSpotlight";
 
 export default function ProjectStructureSection() {

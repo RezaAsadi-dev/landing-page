@@ -13,7 +13,6 @@ const AccuracySection = lazy(() => import("../components/sections/AccuracySectio
 const LanguageSupportSection = lazy(() => import("../components/sections/LanguageSupportSection"));
 const CatalogSection = lazy(() => import("../components/sections/CatalogSection"));
 const DemoCtaSection = lazy(() => import("../components/sections/DemoCtaSection"));
-const ThankYouSection = lazy(() => import("../components/sections/ThankYouSection"));
 
 const LazySectionLoader = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={null}>
