@@ -7,7 +7,7 @@ export default function ExecutiveSummarySection() {
     <>
       <div className="mt-[60px] sm:mt-[80px] md:mt-[100px] lg:mt-[120px]  px-4 sm:px-6 md:px-8">
 
-        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[30px] sm:mb-[40px] md:mb-[50px]">
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4   mb-[30px] sm:mb-[40px] md:mb-[50px]">
           <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" >چکیده اجرایی</p>
           <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">EXECUTIVE SUMMARY</p>
         </div>

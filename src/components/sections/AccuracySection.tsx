@@ -27,14 +27,14 @@ const accuracyData = [
 
 export default function AccuracySection() {
   return (
-    <section className="min-h-screen flex items-center justify-center p-4 mt-20 sm:p-6 md:p-8 relative">
+    <section className="flex items-center justify-center p-4 mt-20 sm:p-6 md:p-8 relative">
       <div className="max-w-6xl w-full space-y-6 sm:space-y-8 px-2 sm:px-4">
-        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[20px]">
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4   mb-[20px]">
           <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" >نمودار دقت FarsiFlow</p>
           <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">FARSIFLOW ACCURACY CHART FOR PERSIAN LANGUAGE </p>
         </div>
 
-        <div className="  p-5 sm:p-6 md:p-8 lg:p-12  transition-transform duration-300">
+        <div className="  p-5 sm:p-6 md:p-8 lg:p-12   ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
             {/* Chart Section */}
             <div className="order-2 lg:order-1">
@@ -92,7 +92,7 @@ export default function AccuracySection() {
               {accuracyData.map((item, index) => (
                 <div
                   key={index}
-                  className="p-4 sm:p-5 md:p-6 bg-gray-600 rounded-lg sm:rounded-xl border transition-all duration-300 hover:scale-[1.02]"
+                  className="p-4 sm:p-5 md:p-6 bg-gray-600 rounded-lg sm:rounded-xl border    "
                   style={{ borderColor: `${item.color}40` }}
                 >
                   <div className="flex items-center justify-between mb-2 sm:mb-3">

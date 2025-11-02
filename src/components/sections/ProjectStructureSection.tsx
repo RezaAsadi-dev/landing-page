@@ -2,10 +2,10 @@ import CardSpotlightDemo from "../cards/CardSpotlight";
 
 export default function ProjectStructureSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center mt-8 p-4 sm:p-6 md:p-8 relative">
+    <section className="flex items-center justify-center mt-8 p-4 sm:p-6 md:p-8 relative">
       <div className="max-w-5xl w-full space-y-6 sm:space-y-8 px-2 sm:px-4">
 
-        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[30px] sm:mb-[40px] md:mb-[50px]">
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4   mb-[30px] sm:mb-[40px] md:mb-[50px]">
           <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" >ساختار ماژولار پروژه </p>
           <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">MODULAR PROJECT STRUCTURE </p>
         </div>
@@ -32,7 +32,7 @@ export default function ProjectStructureSection() {
             ]}
             text2=""
           />
-    <CardSpotlightDemo
+          <CardSpotlightDemo
             title="API Layer"
             text1=""
             list={[

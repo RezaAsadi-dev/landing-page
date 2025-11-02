@@ -145,7 +145,7 @@ const CustomCursor = () => {
         }}
       >
         <div 
-          className={`transition-all duration-300 ease-out ${
+          className={`   ease-out ${
             cursor.isHovering 
               ? 'w-20 h-20 bg-blue-100' 
               : 'w-12 h-12 bg-blue-200'

@@ -9,10 +9,9 @@ type HeroSplineProps = {
 export default function HeroSpline({ onLoaded }: HeroSplineProps) {
   return (
     <div className="bg-white relative">
-    
         <div className="w-full  ">
           <Spline
-            scene="/scene.splinecode"
+            scene="https://prod.spline.design/JW-BARweIA3SQb0p/scene.splinecode"
             onLoad={onLoaded}
           />
         </div>

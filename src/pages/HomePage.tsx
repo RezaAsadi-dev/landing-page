@@ -1,7 +1,7 @@
 "use client";
 
 import HeroSpline from "../components/sections/HeroSpline";
-import { useState, lazy, Suspense, memo } from "react";
+import { useState, lazy } from "react";
 import Loader from "../components/Loader";
 import BackgroundBlobs from "../components/sections/BackgroundBlobs";
 import ExecutiveSummarySection from "../components/sections/ExecutiveSummarySection";
@@ -14,13 +14,7 @@ const LanguageSupportSection = lazy(() => import("../components/sections/Languag
 const CatalogSection = lazy(() => import("../components/sections/CatalogSection"));
 const DemoCtaSection = lazy(() => import("../components/sections/DemoCtaSection"));
 
-const LazySectionLoader = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={null}>
-    {children}
-  </Suspense>
-);
 
-const MemoizedBackgroundBlobs = memo(BackgroundBlobs);
 
 export default function FarsiFlowPresentation() {
   const [heroReady, setHeroReady] = useState(false);
@@ -28,35 +22,22 @@ export default function FarsiFlowPresentation() {
     <div>
       <HeroSpline onLoaded={() => setHeroReady(true)} />
       <div
-        className="bg-white scroll-smooth"
-        style={{ scrollBehavior: "smooth" }}
+        className="bg-white "
+      style={{ scrollBehavior: "smooth" }}
       >
         {!heroReady ? (
           <Loader />
         ) : (
           <>
-            <MemoizedBackgroundBlobs />
+            <BackgroundBlobs />
             <div className="relative z-10">
               <ExecutiveSummarySection />
-              <LazySectionLoader>
-                <CompetitiveAdvantagesSection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <ProjectStructureSection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <AccuracySection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <LanguageSupportSection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <CatalogSection />
-              </LazySectionLoader>
-              <LazySectionLoader>
-                <DemoCtaSection />
-              </LazySectionLoader>
-
+              <CompetitiveAdvantagesSection />
+              <ProjectStructureSection />
+              <AccuracySection />
+              <LanguageSupportSection />
+              <CatalogSection />
+              <DemoCtaSection />
             </div>
           </>
         )}

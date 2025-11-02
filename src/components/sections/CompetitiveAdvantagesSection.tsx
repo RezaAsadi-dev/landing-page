@@ -13,7 +13,7 @@ export default function CompetitiveAdvantagesSection() {
   return (
     <section className="flex items-center justify-center p-4 sm:p-6 md:p-8 relative mt-12">
       <div className="w-full max-w-7xl px-2 sm:px-4 md:px-6 lg:px-8">
-        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 transition-transform duration-300 mb-[30px] sm:mb-[40px] md:mb-[50px]">
+        <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 mb-[30px] sm:mb-[40px] md:mb-[50px]">
           <p className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[35px] text-black" >مزیت های رقابتی</p>
           <p className="-mt-1 sm:-mt-2 text-[#d8d8d8] tracking-[4px] sm:tracking-[6px] md:tracking-[8px] text-xs sm:text-sm md:text-base">COMPETITIVE ADVANTAGES</p>
         </div>

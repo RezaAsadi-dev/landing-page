@@ -1,7 +1,7 @@
 export default function ThankYouSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 relative">
-      <div className="text-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 transition-all duration-300 px-2">
+    <section className="   flex items-center justify-center p-4 sm:p-6 md:p-8 relative">
+      <div className="text-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12  px-2">
         <div className="space-y-2 sm:space-y-3 md:space-y-4">
           <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold bg-linear-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Platin</div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-balance text-white">THANK YOU</h1>
